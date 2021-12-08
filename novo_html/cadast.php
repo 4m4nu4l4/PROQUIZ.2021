@@ -1,6 +1,5 @@
 <?php
-  /*-S localhost:8000;*/
-  /*include 'include/connection.php';*/
+ -S localhost:8000
  ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/cadast.css">
-    <link rel="stylesheet" href="css/estilo.css">
     <title>Cadastro</title>
 </head>
 <body>
@@ -36,10 +34,9 @@
             <a class="nav-link" href="dicas_novo.html">Dicas</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="teste_novo.php">Teste </a>
+            <a class="nav-link" href="teste_novo.html">Teste </a>
             </li>
           </ul>
-          <a href="login.php" class="btn btn-light">Login</a>
          <!--<button type="button" class="btn btn-light" href="cadast.html">Cadastre-se</button>-->
         </div>
       </nav>
@@ -59,7 +56,7 @@
     <div class="col">
         <div class="jumbotron">
             <b>
-                <h1>Cadastre-se!</h1>
+                <h1>Cadastro:</h1>
               </b>
               <hr class="my-4">
       <form>

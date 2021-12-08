@@ -39,13 +39,8 @@
         <li class="nav-item active">
           <a class="nav-link" href="teste_novo.html">Teste</a>
         </li>
-        <li>
       </ul>
-      <a href="cadast.php" class="btn btn-light">Cadastro</a>
-</li>
-<li>
-      <a href="login.php" class="btn btn-light">Login</a>
-</li>
+      <a href="cadast.html" class="btn btn-light">Cadastre-se</a>
     </div>
   </nav>
   <div class="alert alert-danger" role="alert">
@@ -53,7 +48,6 @@
   </div>
   <br>
   <div class="container">
-  <div class="jumbotron">
     <div class="row">
       <div class="col">
         <b><i>Faça no seu tempo! a pressa é a inimiga da perfeição.<br>
@@ -118,7 +112,6 @@
     <br>
     <br>
     <b>3) A pessoa da sua família que você mais admira:</b>
-    <br>
     <div class="form-check form-check-inline">
       <input class="form-check-input" name="grupo3" type="radio" id="grupox31" value="A">
       <label class="form-check-label" for="inlineradio">a) Estudou bastante e possui uma posição de destaque no mercado
@@ -550,8 +543,7 @@
     </div>
     <br>
     <br>
-    <button type="button" class="btn btn-outline-dark" onclick="respostas()">Resultado</button>
-</div>
+    <button type="button" class="btn btn-outline-blue" onclick="respostas()">Resultado</button>
 <br>
 <br>
 <br>
