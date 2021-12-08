@@ -1,0 +1,19 @@
+body {
+    background-image: url("fundo_novoo.jpg");
+    /*background-repeat: no-repeat;
+    background-size: 100%;*/
+  }
+
+.cadastro {
+    width: 25%;
+    height: 387pt;
+    /*color: white;*/
+    background-color: #11111199;
+    padding: 8px;
+    border: 4px;
+    border-radius: 5px;
+  }
+
+.check {
+    color: white;
+  }
