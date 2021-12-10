@@ -1,3 +1,284 @@
+<?php
+   include 'include/mysql.php';
+
+   $mensagem="";
+    if(isset($_POST['acao'])){
+        
+        $codigo_usuario = 1; //colocar o login do usuario
+        $pergunta1 = $_POST['grupo1'];
+        $pergunta2 = $_POST['grupo2'];
+        $pergunta3 = $_POST['grupo3'];
+        $pergunta4 = $_POST['grupo4'];
+        $pergunta5 = $_POST['grupo5'];
+        $pergunta6 = $_POST['grupo6'];
+        $pergunta7 = $_POST['grupo7'];
+        $pergunta8 = $_POST['grupo8'];
+        $pergunta9 = $_POST['grupo9'];
+        $pergunta10 = $_POST['grupo10'];
+        $pergunta11 = $_POST['grupo11'];
+        $pergunta12 = $_POST['grupo12'];
+        $pergunta13 = $_POST['grupo13'];
+        $pergunta14 = $_POST['grupo14'];
+        $pergunta15 = $_POST['grupo15'];
+        $pergunta16 = $_POST['grupo16'];
+        $pergunta17 = $_POST['grupo17'];
+
+
+        $sql = $pdo->prepare("INSERT INTO questionario (cod_pergunta, cod_usuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, 
+        pergunta6, pergunta7, pergunta8, pergunta9, pergunta10, pergunta11, pergunta12, pergunta13, pergunta14, pergunta15, pergunta16, pergunta17)
+                                            values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        if ($sql->execute(array($codigo_usuario,$pergunta1,$pergunta2,$pergunta3,$pergunta4,$pergunta5,$pergunta6,$pergunta7,$pergunta8,$pergunta9,$pergunta10,$pergunta11,$pergunta12,$pergunta13,$pergunta14,$pergunta15,$pergunta16,$pergunta17))){
+          echo 'Cadastro com sucesso';
+        } else{
+          echo 'Erro ao cadastrar';
+        }
+
+
+        //Ultimo registor inserido
+        $codigo=0;
+        $sql = $pdo->prepare("SELECT cod_pergunta FROM questionario ORDER BY cod_pergunta DESC limit 1");
+        if ($sql->execute(array())){
+          $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+          if (count($info) > 0) { 
+            foreach($info as $key => $values){
+              $codigo= $values['cod_pergunta'];
+            }  
+          } 
+
+          $A=0;
+          $B=0;
+          $C=0;
+          $D=0;
+          $E=0;
+          $sql = $pdo->prepare("SELECT * FROM questionario Where cod_pergunta = ?");
+          if ($sql->execute(array($codigo))){
+            $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+            if (count($info) > 0) { 
+                foreach($info as $key => $values){
+                  if ($values['pergunta1'] == 'A')
+                      $A++;
+                  else if ($values['pergunta1'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta1'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta1'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta1'] == 'E')
+                      $E++;    
+
+                  if ($values['pergunta2'] == 'A')
+                      $A++;
+                  else if ($values['pergunta2'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta2'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta2'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta2'] == 'E')
+                      $E++; 
+
+                  if ($values['pergunta3'] == 'A')
+                      $A++;
+                  else if ($values['pergunta3'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta3'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta3'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta3'] == 'E')
+                      $E++;  
+
+                  if ($values['pergunta4'] == 'A')
+                      $A++;
+                  else if ($values['pergunta4'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta4'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta4'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta4'] == 'E')
+                      $E++;
+                      
+                  if ($values['pergunta5'] == 'A')
+                      $A++;
+                  else if ($values['pergunta5'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta5'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta5'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta5'] == 'E')
+                      $E++; 
+                      
+                  if ($values['pergunta6'] == 'A')
+                      $A++;
+                  else if ($values['pergunta6'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta6'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta6'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta6'] == 'E')
+                      $E++;
+                      
+                  if ($values['pergunta7'] == 'A')
+                      $A++;
+                  else if ($values['pergunta7'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta7'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta7'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta7'] == 'E')
+                      $E++; 
+                      
+                  if ($values['pergunta8'] == 'A')
+                      $A++;
+                  else if ($values['pergunta8'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta8'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta8'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta8'] == 'E')
+                      $E++;    
+
+                  if ($values['pergunta9'] == 'A')
+                      $A++;
+                  else if ($values['pergunta9'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta9'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta9'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta9'] == 'E')
+                      $E++; 
+                      
+                  if ($values['pergunta10'] == 'A')
+                      $A++;
+                  else if ($values['pergunta10'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta10'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta10'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta10'] == 'E')
+                      $E++;  
+                      
+                  if ($values['pergunta11'] == 'A')
+                      $A++;
+                  else if ($values['pergunta11'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta11'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta11'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta11'] == 'E')
+                      $E++;    
+                      
+                  if ($values['pergunta12'] == 'A')
+                      $A++;
+                  else if ($values['pergunta12'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta12'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta12'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta12'] == 'E')
+                      $E++;    
+                      
+                  if ($values['pergunta13'] == 'A')
+                      $A++;
+                  else if ($values['pergunta13'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta13'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta13'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta13'] == 'E')
+                      $E++;    
+                      
+                  if ($values['pergunta14'] == 'A')
+                      $A++;
+                  else if ($values['pergunta14'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta14'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta14'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta14'] == 'E')
+                      $E++;    
+                      
+                  if ($values['pergunta15'] == 'A')
+                      $A++;
+                  else if ($values['pergunta15'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta15'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta15'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta15'] == 'E')
+                      $E++;    
+                      
+                  if ($values['pergunta16'] == 'A')
+                      $A++;
+                  else if ($values['pergunta16'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta16'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta16'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta16'] == 'E')
+                      $E++;    
+              
+                  if ($values['pergunta17'] == 'A')
+                      $A++;
+                  else if ($values['pergunta17'] == 'B')
+                      $B++;    
+                  else if ($values['pergunta17'] == 'C')
+                      $C++;    
+                  else if ($values['pergunta17'] == 'D')
+                      $D++;    
+                  else if ($values['pergunta17'] == 'E')
+                      $E++;    
+
+                      echo "<br>";
+                  // variáveis da diferença salarial 
+                  $saldev[0] = $A;
+                  $saldev[1] = $B;
+                  $saldev[2] = $C;
+                  $saldev[3] = $D;
+                  $saldev[4] = $E;
+                  $saldev2 = max($saldev);
+                  $mensagem = "<p>Total de Respostas A: ".$A."</p>";
+                  $mensagem = $mensagem."<p>Total de Respostas B: ".$B."</p>";
+                  $mensagem = $mensagem."<p>Total de Respostas C: ".$C."</p>";
+                  $mensagem = $mensagem."<p>Total de Respostas D: ".$D."</p>";
+                  $mensagem = $mensagem."<p>Total de Respostas E: ".$E."</p>";
+
+
+                  if ($saldev2 == $A)
+                    $mensagem  = $mensagem."<p> A:Você valoriza o sucesso profissional. Profissões relacionadas: Arquitetura, Artes Cênicas, Artes Plásticas, Astronomia, Ciências Biológicas (Biologia), Cinema, Engenharia Mecânica, Esporte, Filosofia, Jornalismo, Matemática, Publicidade, Rádio e TV, Turismo, Veterinária, Educação Física, Meteorologia, Oceanografia, Engenharia Ambiental, Engenharia Florestal e Arqueologia.</p>";
+                  if ($saldev2 == $B)
+                    $mensagem = $mensagem."<p> B: Você valoriza a ascensão social. Profissões relacionadas: Medicina, Direito, Artes Cênicas, Arquitetura, Cinema, Editoração, Engenharia Aeronáutica, Jornalismo, Odontologia, Biomedicina, Farmácia, Artes Plásticas, Artes Visuais, Gastronomia, Relações Internacionais e Relações Públicas.</p>";
+                  if ($saldev2 == $C)
+                    $mensagem = $mensagem."<p> C: Você valoriza a segurança. Profissões relacionadas: Medicina, Odontologia, Engenharia Civil, Engenharia da Computação, Letras, Nutrição, Pedagogia, Psicologia, Veterinária, Biomedicina, História, Pedagogia, Ciência da Computação, Engenharia de Controle e Automação, Engenharia Nuclear e Engenharia de Materiais.</p>";
+                  if ($saldev2 == $D)
+                    $mensagem = $mensagem."<p> D: Você valoriza a qualidade de vida. Profissões relacionadas: Administração, Ciências Contábeis, Análise de Sistemas, Economia, Engenharia da Computação, Farmácia, Física, Comércio Exterior, Engenharia Mecânica, Engenharia Eletrônica, Engenharia Elétrica, Engenharia de Produção, Engenharia de Agrimensura e Biblioteconomia.</p>";
+                  if ($saldev2 == $E)
+                    $mensagem = $mensagem."<p> E: Você valoriza a solidariedade. Profissões relacionadas: Ciências Sociais, Enfermagem, Fonoaudiologia, Engenharia de Alimentos, Jornalismo, Nutrição, Terapia Ocupacional, Psicologia, Serviço Social, Fisioterapia, Odontologia, Decoração, Moda, Fonoaudiologia e Farmácia.</p>";
+          
+                }
+                
+            } else {
+                echo '<h6>Email de Usuário não cadastrado</h6>';
+            }
+          }    
+      }
+
+
+  }     
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +298,7 @@
   
  
   <nav class="navbar navbar-expand-lg navbar-light bg-info" style="background-color:#5d7ead !important">
-    <img src="imagens/foto sem fundo.png" width="150" height="100" alt="">
+    <img src="css/semnada.png" width="150" height="100" alt="">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar"
       aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
@@ -39,8 +320,13 @@
         <li class="nav-item active">
           <a class="nav-link" href="teste_novo.html">Teste</a>
         </li>
+        <li>
       </ul>
-      <a href="cadast.html" class="btn btn-light">Cadastre-se</a>
+      <a href="cadast.php" class="btn btn-light">Cadastro</a>
+</li>
+<li>
+      <a href="login.php" class="btn btn-light">Login</a>
+</li>
     </div>
   </nav>
   <div class="alert alert-danger" role="alert">
@@ -48,6 +334,7 @@
   </div>
   <br>
   <div class="container">
+  <div class="jumbotron">
     <div class="row">
       <div class="col">
         <b><i>Faça no seu tempo! a pressa é a inimiga da perfeição.<br>
@@ -112,6 +399,7 @@
     <br>
     <br>
     <b>3) A pessoa da sua família que você mais admira:</b>
+    <br>
     <div class="form-check form-check-inline">
       <input class="form-check-input" name="grupo3" type="radio" id="grupox31" value="A">
       <label class="form-check-label" for="inlineradio">a) Estudou bastante e possui uma posição de destaque no mercado
@@ -541,9 +829,16 @@
       <input class="form-check-input" name="grupo17" type="radio" id="grupox175" value="E">
       <label class="form-check-label" for="inlineradio">e) Escolher a carreira errada e ter que mudar depois.</label>
     </div>
-    <br>
-    <br>
-    <button type="button" class="btn btn-outline-blue" onclick="respostas()">Resultado</button>
+    </div>
+    <input type="submit" name="acao" class="btn btn-outline-blue" value="Resultado">
+
+    </form> 
+    
+    <?php echo $mensagem ?>
+<br>
+<br>
+<br>
+</div>
 <br>
 <br>
 <br>
@@ -608,8 +903,6 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <b>Para mais informações de contato, vá até a página
-              <a href="sobre_nos.html" class="footer-link"> sobre_nos</a></b>
           </div>
     </footer>
     <!-- JavaScript (Opcional) -->
@@ -634,248 +927,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
-
-
-    <script>
-      function respostas() {
-        var respostaA = 0;
-        var respostaB = 0;
-        var respostaC = 0;
-        var respostaD = 0;
-        var respostaE = 0;
-
-        //resposta grupo 1
-        if (document.getElementById('grupox11').checked)
-           respostaA++; 
-        if (document.getElementById('grupox12').checked)
-           respostaB++;
-        if (document.getElementById('grupox13').checked)
-           respostaC++;
-        if (document.getElementById('grupox14').checked)
-           respostaD++;
-        if (document.getElementById('grupox15').checked)
-           respostaE++;
-
-        //resposta grupo 2
-        if (document.getElementById('grupox21').checked)
-          respostaA++;
-        if (document.getElementById('grupox22').checked)
-          respostaB++;
-        if (document.getElementById('grupox23').checked)
-        respostaC++;
-        if (document.getElementById('grupox24').checked)
-        respostaD++;
-        if (document.getElementById('grupox25').checked)
-        respostaE++;
-
-         //resposta grupo 3
-         if (document.getElementById('grupox31').checked)
-          respostaA++;
-        if (document.getElementById('grupox32').checked)
-          respostaB++;
-        if (document.getElementById('grupox33').checked)
-        respostaC++;
-        if (document.getElementById('grupox34').checked)
-        respostaD++;
-        if (document.getElementById('grupox35').checked)
-        respostaE++;
-
-         //resposta grupo 4
-         if (document.getElementById('grupox41').checked)
-          respostaA++;
-        if (document.getElementById('grupox42').checked)
-          respostaB++;
-        if (document.getElementById('grupox43').checked)
-        respostaC++;
-        if (document.getElementById('grupox44').checked)
-        respostaD++;
-        if (document.getElementById('grupox45').checked)
-        respostaE++;
-
-         //resposta grupo 5
-         if (document.getElementById('grupox51').checked)
-          respostaA++;
-        if (document.getElementById('grupox52').checked)
-          respostaB++;
-        if (document.getElementById('grupox53').checked)
-        respostaC++;
-        if (document.getElementById('grupox54').checked)
-        respostaD++;
-        if (document.getElementById('grupox55').checked)
-        respostaE++;
-
-         //resposta grupo 6
-         if (document.getElementById('grupox61').checked)
-          respostaA++;
-        if (document.getElementById('grupox62').checked)
-          respostaB++;
-        if (document.getElementById('grupox63').checked)
-        respostaC++;
-        if (document.getElementById('grupox64').checked)
-        respostaD++;
-        if (document.getElementById('grupox65').checked)
-        respostaE++;
-
-         //resposta grupo 7
-         if (document.getElementById('grupox71').checked)
-          respostaA++;
-        if (document.getElementById('grupox72').checked)
-          respostaB++;
-        if (document.getElementById('grupox73').checked)
-        respostaC++;
-        if (document.getElementById('grupox74').checked)
-        respostaD++;
-        if (document.getElementById('grupox75').checked)
-        respostaE++;
-
-         //resposta grupo 8
-         if (document.getElementById('grupox81').checked)
-          respostaA++;
-        if (document.getElementById('grupox82').checked)
-          respostaB++;
-        if (document.getElementById('grupox83').checked)
-        respostaC++;
-        if (document.getElementById('grupox84').checked)
-        respostaD++;
-        if (document.getElementById('grupox85').checked)
-        respostaE++;
-
-         //resposta grupo 9
-         if (document.getElementById('grupox91').checked)
-          respostaA++;
-        if (document.getElementById('grupox92').checked)
-          respostaB++;
-        if (document.getElementById('grupox93').checked)
-        respostaC++;
-        if (document.getElementById('grupox94').checked)
-        respostaD++;
-        if (document.getElementById('grupox95').checked)
-        respostaE++;
-
-         //resposta grupo 10
-         if (document.getElementById('grupox101').checked)
-          respostaA++;
-        if (document.getElementById('grupox102').checked)
-          respostaB++;
-        if (document.getElementById('grupox103').checked)
-        respostaC++;
-        if (document.getElementById('grupox104').checked)
-        respostaD++;
-        if (document.getElementById('grupox105').checked)
-        respostaE++;
-
-         //resposta grupo 11
-         if (document.getElementById('grupox111').checked)
-          respostaA++;
-        if (document.getElementById('grupox112').checked)
-          respostaB++;
-        if (document.getElementById('grupox113').checked)
-        respostaC++;
-        if (document.getElementById('grupox114').checked)
-        respostaD++;
-        if (document.getElementById('grupox115').checked)
-        respostaE++;
-
-         //resposta grupo 12
-         if (document.getElementById('grupox121').checked)
-          respostaA++;
-        if (document.getElementById('grupox122').checked)
-          respostaB++;
-        if (document.getElementById('grupox123').checked)
-        respostaC++;
-        if (document.getElementById('grupox124').checked)
-        respostaD++;
-        if (document.getElementById('grupox125').checked)
-        respostaE++;
-
-         //resposta grupo 13
-         if (document.getElementById('grupox131').checked)
-          respostaA++;
-        if (document.getElementById('grupox132').checked)
-          respostaB++;
-        if (document.getElementById('grupox133').checked)
-        respostaC++;
-        if (document.getElementById('grupox134').checked)
-        respostaD++;
-        if (document.getElementById('grupox135').checked)
-        respostaE++;
-
-         //resposta grupo 14
-         if (document.getElementById('grupox141').checked)
-          respostaA++;
-        if (document.getElementById('grupox142').checked)
-          respostaB++;
-        if (document.getElementById('grupox143').checked)
-        respostaC++;
-        if (document.getElementById('grupox144').checked)
-        respostaD++;
-        if (document.getElementById('grupox145').checked)
-        respostaE++;
-
-         //resposta grupo 15
-         if (document.getElementById('grupox151').checked)
-          respostaA++;
-        if (document.getElementById('grupox152').checked)
-          respostaB++;
-        if (document.getElementById('grupox153').checked)
-        respostaC++;
-        if (document.getElementById('grupox154').checked)
-        respostaD++;
-        if (document.getElementById('grupox155').checked)
-        respostaE++;
-
-         //resposta grupo 16
-         if (document.getElementById('grupox161').checked)
-          respostaA++;
-        if (document.getElementById('grupox162').checked)
-          respostaB++;
-        if (document.getElementById('grupox163').checked)
-        respostaC++;
-        if (document.getElementById('grupox164').checked)
-        respostaD++;
-        if (document.getElementById('grupox165').checked)
-        respostaE++;
-
-         //resposta grupo 17
-         if (document.getElementById('grupox171').checked)
-          respostaA++;
-        if (document.getElementById('grupox172').checked)
-          respostaB++;
-        if (document.getElementById('grupox173').checked)
-        respostaC++;
-        if (document.getElementById('grupox174').checked)
-        respostaD++;
-        if (document.getElementById('grupox175').checked)
-        respostaE++;
-
-
-        alert("A:"+respostaA);
-        alert("B:"+respostaB);
-        alert("C:"+respostaC);
-        alert("D:"+respostaD);
-        alert("E:"+respostaE);
-
-        if (respostaA > respostaB && respostaA > respostaC && respostaA > respostaD && respostaA > respostaE){
-        document.write (" A:Você valoriza o sucesso profissional. Profissões relacionadas: Arquitetura, Artes Cênicas, Artes Plásticas, Astronomia, Ciências Biológicas (Biologia), Cinema, Engenharia Mecânica, Esporte, Filosofia, Jornalismo, Matemática, Publicidade, Rádio e TV, Turismo, Veterinária, Educação Física, Meteorologia, Oceanografia, Engenharia Ambiental, Engenharia Florestal e Arqueologia.")
-        }
-        if (respostaB > respostaA && respostaB > respostaC && respostaB > respostaD && respostaB > respostaE){
-          document.write (" B: Você valoriza a ascensão social. Profissões relacionadas: Medicina, Direito, Artes Cênicas, Arquitetura, Cinema, Editoração, Engenharia Aeronáutica, Jornalismo, Odontologia, Biomedicina, Farmácia, Artes Plásticas, Artes Visuais, Gastronomia, Relações Internacionais e Relações Públicas.")
-        }
-        if (respostaC > respostaA && respostaC > respostaB && respostaC > respostaD && respostaC > respostaE){
-        document.write (" C: Você valoriza a segurança. Profissões relacionadas: Medicina, Odontologia, Engenharia Civil, Engenharia da Computação, Letras, Nutrição, Pedagogia, Psicologia, Veterinária, Biomedicina, História, Pedagogia, Ciência da Computação, Engenharia de Controle e Automação, Engenharia Nuclear e Engenharia de Materiais.")
-        }
-        if (respostaD > respostaA && respostaD > respostaB && respostaD > respostaC && respostaD > respostaE){
-          document.write (" D: Você valoriza a qualidade de vida. Profissões relacionadas: Administração, Ciências Contábeis, Análise de Sistemas, Economia, Engenharia da Computação, Farmácia, Física, Comércio Exterior, Engenharia Mecânica, Engenharia Eletrônica, Engenharia Elétrica, Engenharia de Produção, Engenharia de Agrimensura e Biblioteconomia.")
-        }
-        if (respostaE > respostaA && respostaE > respostaB && respostaE > respostaC && respostaE > respostaD){
-          document.write (" E: Você valoriza a solidariedade. Profissões relacionadas: Ciências Sociais, Enfermagem, Fonoaudiologia, Engenharia de Alimentos, Jornalismo, Nutrição, Terapia Ocupacional, Psicologia, Serviço Social, Fisioterapia, Odontologia, Decoração, Moda, Fonoaudiologia e Farmácia.")
-        }
-        if (respostaA == respostaB && respostaA == respostaC && respostaA == respostaD && respostaA == respostaE);
-        if (respostaB == respostaA && respostaB == respostaC && respostaB == respostaD && respostaB == respostaE);
-        if (respostaC == respostaA && respostaC == respostaB && respostaC == respostaD && respostaC == respostaE);
-        if (respostaD == respostaA && respostaD == respostaB && respostaD == respostaC && respostaD == respostaE);
-        if (respostaE == respostaA && respostaE == respostaB && respostaE == respostaC && respostaE == respostaD);
-      } 
-    </script>
 </body>
 </html>

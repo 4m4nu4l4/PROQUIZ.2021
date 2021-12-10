@@ -1,6 +1,9 @@
 <?php
- -S localhost:8000
+  /*-S localhost:8000;*/
+  include 'include/mysql.php';
+  /*include 'include/connection.php';*/
  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +14,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/cadast.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Cadastro</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-info" style="background-color:#5d7ead !important">   
-        <img src="imagens/foto sem fundo.png" width="150" height="100" alt="">
+        <img src="css/semnada.png" width="150" height="100" alt="">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,9 +38,10 @@
             <a class="nav-link" href="dicas_novo.html">Dicas</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="teste_novo.html">Teste </a>
+            <a class="nav-link" href="teste_novo.php">Teste </a>
             </li>
           </ul>
+          <a href="login.php" class="btn btn-light">Login</a>
          <!--<button type="button" class="btn btn-light" href="cadast.html">Cadastre-se</button>-->
         </div>
       </nav>
@@ -56,7 +61,7 @@
     <div class="col">
         <div class="jumbotron">
             <b>
-                <h1>Cadastro:</h1>
+                <h1>Cadastre-se!</h1>
               </b>
               <hr class="my-4">
       <form>
